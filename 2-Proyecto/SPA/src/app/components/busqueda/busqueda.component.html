@@ -1,0 +1,6 @@
+<h1>Buscando <small> {{busqueda}}</small> </h1>
+<hr>
+
+<div class="card-columns">
+    <app-heroe-targeta [heroe]="heroe" [index]="heroe.id" *ngFor="let heroe of listaHeroes;let i = index"></app-heroe-targeta>
+</div>
