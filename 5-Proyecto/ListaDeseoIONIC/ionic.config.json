@@ -1,0 +1,7 @@
+{
+  "name": "ListaDeseoIONIC",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
