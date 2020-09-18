@@ -13,7 +13,7 @@ import { Lista } from 'src/app/models/lista.model';
 })
 export class ListasComponent implements OnInit {
   
-  @ViewChild(IonList) listaIonic: IonList;
+  listaIonic: IonList;
   @Input() terminada = true;
 
   constructor(public deseosServices: DeseosService,
