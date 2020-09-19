@@ -20,4 +20,4 @@ Es un proyecto en el cual se consume la web API de Spotify para mostrar las canc
 
 ### Nota:
 
-***Actualmente la aplicación no actualiza el token para ingresar a los servicios de Spotify.***
+***Actualmente la aplicación no actualiza el token para ingresar a los servicios de Spotify, toca de manera manual en el aplicativo .***
