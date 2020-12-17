@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 
@@ -12,10 +13,12 @@ export class CreateEmpleadoComponent implements OnInit {
 
   createEmpleado: FormGroup;
   submitted: boolean = false;
+  loading: boolean = false;
 
   constructor(private fb: FormBuilder,
     private _empleadoServicio: EmpleadoService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService,
+    private router: Router) {
 
     this.createEmpleado = this.fb.group({
       nombre: ["", Validators.required],
@@ -29,6 +32,7 @@ export class CreateEmpleadoComponent implements OnInit {
   }
 
   agregarEmpleado() {
+
     if (this.createEmpleado.invalid) {
       this.submitted = true;
       return;
@@ -42,20 +46,25 @@ export class CreateEmpleadoComponent implements OnInit {
       fechaCreacion: new Date(),
       fechaActualizacion: new Date()
     };
-
+    this.loading = true;
     this._empleadoServicio.agregarEmpleado(empleado)
       .then(() => {
         console.log("Ingreso Exitoso.");
-        this.toastr.success('Registro Exitoso del Empleados!', 'Empleado Registrado',{
-          positionClass:'toast-bottom-right'
+        this.toastr.success('Registro Exitoso del Empleados!', 'Empleado Registrado', {
+          positionClass: 'toast-bottom-right',
+          timeOut:15000
         });
+        this.loading = false;
+        this.router.navigate(["listaEmpleados"]);
       }
 
       ).catch(error => {
         console.log(error);
-        this.toastr.error('Registro Fallido del Empleados!', 'Empleado No logro ser Registrado',{
-          positionClass:'toast-bottom-right'
+        this.toastr.error('Registro Fallido del Empleados!', 'Empleado No logro ser Registrado', {
+          positionClass: 'toast-bottom-right',
+          timeOut:15000
         });
+        this.loading = false;
 
       });
   }
