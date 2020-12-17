@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { promise } from 'protractor';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +14,8 @@ export class EmpleadoService {
     return this.fireStore.collection("empleados").add(empelado);
   }
 
+  listaEmpleados(): Observable<any>{
+    return this.fireStore.collection("empleados", ref => ref.orderBy('fechaCreacion','asc')).snapshotChanges();
+  }
 
 }

@@ -1,1 +1,43 @@
-<p>list-empleados works!</p>
+<div class="conteiner mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3 text-center"> Listado de Empleados</span>
+            <button class="btn btn-outline-success float-right" routerLink="/crearEmpleado">
+              <i class="fas fa-user-plus fa-lg"></i>
+            </button>
+            <table class="table table-striped mt-5">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Documento</th>
+                        <th scope="col">Salario</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let empleado of empleados; index as i">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{empleado.nombre}}</td>
+                        <td>{{empleado.apellido}}</td>
+                        <td>{{empleado.documento}}</td>
+                        <td>{{empleado.salario | currency:'USD'}}</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-outline-danger">
+                                  <i class="fas fa-user-minus fa-lg"></i>
+                                </button>
+                                <button class="btn btn-outline-info">
+                                  <i class="fas fa-user-edit fa-lg"></i>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
