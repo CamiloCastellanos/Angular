@@ -117,8 +117,13 @@
               "devServerTarget": "empleadosFirebase:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "empleadosFirebase"
 }

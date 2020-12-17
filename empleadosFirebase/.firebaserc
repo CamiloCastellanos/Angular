@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pruebasfirebase-d415f": {
+      "hosting": {
+        "empleadosFirebase": [
+          "pruebasfirebase-d415f"
+        ]
+      }
+    }
+  }
+}
