@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { EmpleadoService } from 'src/app/services/empleado.service';
 
 @Component({
@@ -12,7 +13,10 @@ export class CreateEmpleadoComponent implements OnInit {
   createEmpleado: FormGroup;
   submitted: boolean = false;
 
-  constructor(private fb: FormBuilder, private _empleadoServicio: EmpleadoService) {
+  constructor(private fb: FormBuilder,
+    private _empleadoServicio: EmpleadoService,
+    private toastr: ToastrService) {
+
     this.createEmpleado = this.fb.group({
       nombre: ["", Validators.required],
       apellido: ["", Validators.required],
@@ -42,10 +46,17 @@ export class CreateEmpleadoComponent implements OnInit {
     this._empleadoServicio.agregarEmpleado(empleado)
       .then(() => {
         console.log("Ingreso Exitoso.");
+        this.toastr.success('Registro Exitoso del Empleados!', 'Empleado Registrado',{
+          positionClass:'toast-bottom-right'
+        });
       }
 
       ).catch(error => {
         console.log(error);
+        this.toastr.error('Registro Fallido del Empleados!', 'Empleado No logro ser Registrado',{
+          positionClass:'toast-bottom-right'
+        });
+
       });
   }
 
