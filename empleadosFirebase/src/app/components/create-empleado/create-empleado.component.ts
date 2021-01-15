@@ -16,9 +16,9 @@ export class CreateEmpleadoComponent implements OnInit {
   loading: boolean = false;
 
   constructor(private fb: FormBuilder,
-    private _empleadoServicio: EmpleadoService,
-    private toastr: ToastrService,
-    private router: Router) {
+              private _empleadoServicio: EmpleadoService,
+              private toastr: ToastrService,
+              private router: Router) {
 
     this.createEmpleado = this.fb.group({
       nombre: ["", Validators.required],
