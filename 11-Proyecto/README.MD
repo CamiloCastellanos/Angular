@@ -3,7 +3,7 @@
 
 En este proyecto se explora la implementación de Cloud Firestore (Firebase) realizando un CRUD para una base de datos de empleados.
 
-Adicionalmente se realizo el despliegue en **Netlify** y el link es: https://heuristic-shirley-0c0ca5.netlify.app/
+Adicionalmente se realizo el despliegue en [**Netlify**](https://heuristic-shirley-0c0ca5.netlify.app/).
 
 ![Netlify](https://github.com/CamiloCastellanos/Angular/blob/master/11-Proyecto/Imagenes/netlify.png?raw=true)
 
