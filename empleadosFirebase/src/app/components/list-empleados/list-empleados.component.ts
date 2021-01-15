@@ -19,12 +19,17 @@ export class ListEmpleadosComponent implements OnInit {
 
   listaEmpleados() {
     this._empleadoService.listaEmpleados().subscribe(data => {
+      this.empleados = [];
 
       data.forEach(element => {
-        this.empleados.push(element.payload.doc.data());
+        this.empleados.push({
+          id: element.payload.doc.id,
+          ...element.payload.doc.data()
+        });
       });
       console.log(this.empleados);
-
-    })
+    });
   }
+
+
 }
