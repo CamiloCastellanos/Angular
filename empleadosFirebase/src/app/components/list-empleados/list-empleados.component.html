@@ -25,7 +25,7 @@
                         <td>{{empleado.salario | currency:'USD'}}</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <button class="btn btn-outline-danger">
+                                <button (click)="eliminarEmpleado(empleado.id)" class="btn btn-outline-danger">
                                   <i class="fas fa-user-minus fa-lg"></i>
                                 </button>
                                 <button class="btn btn-outline-info">

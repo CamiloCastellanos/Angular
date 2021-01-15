@@ -31,5 +31,9 @@ export class ListEmpleadosComponent implements OnInit {
     });
   }
 
-
+  eliminarEmpleado(id: string) {
+    this._empleadoService.eliminarEmpleado(id).then().catch(error => {
+      console.log(error);
+    });
+  }
 }
