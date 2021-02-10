@@ -1,5 +1,5 @@
 
-# Firebase
+# Empleados Firebase
 
 En este proyecto se explora la implementación de Cloud Firestore (Firebase) realizando un CRUD para una base de datos de empleados.
 
