@@ -1,36 +1,67 @@
 <h4>Formularios <small> Template </small></h4>
 <hr>
-<form autocomplete="off">
+<form autocomplete="off" (ngSubmit)="guardar(FormularioTemplate)" #FormularioTemplate="ngForm">
 
-    <div>
+    <div class="">
 
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre</label>
             <div class="col-8">
-
-                <input class="form-control" type="text" placeholder="Nombre">
+                <span class="form-text text-danger" *ngIf="nombre.invalid && nombre.touched">El nombre necesita almenos 5 letras</span>
+                <input class="form-control" type="text" placeholder="Nombre" name="nombre" [class.is-invalid]="nombre.invalid && nombre.touched" [ngModel]="usuario.nombre" required minlength="5" #nombre="ngModel">
             </div>
         </div>
-
+        <br>
         <div class="form-group row">
             <label class="col-2 col-form-label">Apellido</label>
             <div class="col-8">
-
-                <input class="form-control" type="text" placeholder="Apellido">
+                <span class="form-text text-danger" *ngIf="apellido.invalid && apellido.touched">El apellido necesita almenos 5 letras</span>
+                <input class="form-control" type="text" placeholder="Apellido" name="apellido" required minlength="5" [ngModel]="usuario.apellido" [class.is-invalid]="apellido.invalid && apellido.touched" #apellido="ngModel">
             </div>
         </div>
-
+        <br>
     </div>
 
     <div class="form-group row">
         <label class="col-2 col-form-label">Correo</label>
         <div class="col-8">
+            <span class="form-text text-danger" *ngIf="correo.invalid && correo.touched">El correo tiene un formato invalido</span>
+            <input class="form-control" type="email" placeholder="Correo electrónico" name="correo" [ngModel]="usuario.correo" [class.is-invalid]="correo.invalid && correo.touched" pattern="^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
+                #correo="ngModel" required>
+        </div>
+    </div>
+    <br>
+    <div class="form-group row">
+        <label class="col-2 col-form-label">  Pais</label>
+        <div class="col-8">
+            <span class="form-text text-danger" *ngIf="(pais.invalid && pais.touched) && usuario.pais==''">El pais es requerido</span>
 
-            <input class="form-control" type="email" placeholder="Correo electrónico">
+            <select class="form-control" name="pais" [disabled]="listaPais.length === 0" [class.is-invalid]="pais.invalid && pais.touched" [ngModel]="usuario.pais" required #pais="ngModel">
+              <option *ngFor="let pais of listaPais"
+                      [value]="pais.codigo">
+                {{ pais.nombre }}
+              </option>
+            </select>
         </div>
     </div>
 
-
+    <br>
+    <div class="form-group row">
+        <label class="col-2 col-form-label"> Genero</label>
+        <div class="col-8">
+            <span class="form-text text-danger" *ngIf="(genero.invalid && genero.touched)">El genero es requerido</span>
+            <div>
+                <div class="form-check form-check-inline">
+                    <span class="form-check-label">Maculino</span>
+                    <input class="form-check-input" type="radio" name="genero" value="Maculino" [class.is-invalid]="genero.invalid && genero.touched" [ngModel]="usuario.genero" required #genero="ngModel">
+                </div>
+                <div class="form-check form-check-inlinet">
+                    <span class="form-check-label">Femenino</span>
+                    <input class="form-check-input" type="radio" name="genero" value="Femenino" [class.is-invalid]="genero.invalid && genero.touched" [ngModel]="usuario.genero" required #genero="ngModel">
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="form-group row">
         <label class="col-2 col-form-label">&nbsp;</label>
@@ -40,5 +71,4 @@
       </button>
         </div>
     </div>
-
 </form>
