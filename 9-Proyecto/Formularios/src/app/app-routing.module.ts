@@ -6,7 +6,7 @@ import { TemplateComponent } from './pages/template/template.component';
 const routes: Routes = [
   { path: "Reactivo", component: ReactiveComponent },
   { path: "Template", component: TemplateComponent },
-  { path: "", pathMatch: 'full', redirectTo: "Template" },
+  { path: "", pathMatch: 'full', redirectTo: "Reactivo" },
   { path: "**", pathMatch: 'full', redirectTo: "Template" }
 ];
 
