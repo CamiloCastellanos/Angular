@@ -8,7 +8,7 @@ import { BusquedaComponent } from './components/busqueda/busqueda.component'
 const APP_ROUTES: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'heroes', component: HeroesComponent },
-    { path: 'about', component: AboutComponent },
+    // { path: 'about', component: AboutComponent },
     { path: 'heroe/:id', component: HeroeComponent },
     { path: 'busqueda/:texto', component: BusquedaComponent },
     { path: '**', pathMatch: 'full', redirectTo: 'home' }

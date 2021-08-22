@@ -13,13 +13,16 @@
             <li class="nav-item active" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['heroes']">Heroes </a>
             </li>
-            <li class="nav-item active" routerLinkActive="active">
+            <!-- <li class="nav-item active" routerLinkActive="active">
                 <a class="nav-link" [routerLink]="['about']">About </a>
-            </li>
+            </li> -->
         </ul>
     </div>
 
-    <div class="form-inline">
+    <div class="form-inline my-2 my-lg-0">
+        <a type="button" class=" text-light btn btn-outline-light mr-sm-2" href="https://github.com/CamiloCastellanos/Angular/tree/master/2-Proyecto" target="_blank">
+            <i class="fab fa-git-alt"></i> Github - Codigo Fuente
+        </a>
         <input class="form-control mr-sm-2" type="search" placeholder="Buscar Heroe" aria-label="Search" (keyup.enter)="buscarHeroe(buscarTexto.value)" #buscarTexto>
         <button class="btn btn-outline-success my-2 my-sm-0" type="button" (click)="buscarHeroe(buscarTexto.value)">Buscar</button>
     </div>
